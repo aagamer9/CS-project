@@ -1,0 +1,45 @@
+from tkinter import *
+from tkinter import messagebox
+root = Tk()
+
+e = Entry(root,width = 30)
+e.pack()
+e.insert(0,"ادخل النسبة الثانوية الخاصة بك :")
+
+e1 = Entry(root,width = 30)
+e1.pack()
+e1.insert(0,"ادخل درجة القدرات الخاصة بك :")
+
+e2 = Entry(root,width = 30)
+e2.pack()
+e2.insert(0,"ادخل درجةالتحصيلي الخاصة بك :")
+
+def butn():
+    a = int (e.get())
+    b = int (e1.get())
+    c = int (e2.get())
+    m = (a * 40 + b * 30 + c * 30) / 100
+    if m >= 97:
+        messagebox.showinfo("UPM","مبروك تم تأهيلك لمنحةالمتفوقين بنسبة (80%)")
+
+    elif m >= 75:
+        q1 = messagebox.askyesno("التالي","هل درجتك في مقياس موهبة اعلى من 600 ؟ ")
+
+        if q1 == True :
+            messagebox.showinfo("UPM","مبروك تم تأهيلك لمنحة الموهوبين بنسبة (40%)")
+
+        else:
+            q2 = messagebox.askyesno("السؤال التالي","هل انت ابن لاحد منسوبي قطاع التعليم العام ؟ ")
+        if q2 == True :
+           messagebox.showinfo("UPM","مبروك تم تأهيلك لمنحة أبناء منسوبي قطاع التعليم العام بنسبة (40%)")
+
+        else:
+            q3 = messagebox.askyesno("السؤال التالي","هل منتسب لجمعية خيرية أو الضمان الاجتماعي ؟ ")
+        if q3 == True :
+             messagebox.showinfo("UPM","مبروك تم تأهيلك لمنحة الجمعيات الخيرية بنسبة (50%) ")
+        else:messagebox.showinfo("UPM","نعتذر لم يتم تأهيلك لإٍٍٍٍي منحة")
+
+Button(root,text = "اضغط لمعرفة المنح المتاحة لك",command = butn).pack()
+
+root.mainloop()
+
